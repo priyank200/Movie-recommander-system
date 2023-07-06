@@ -13,7 +13,7 @@ def photo_fetch(movie_id):
     return full_path
 
 
-#function to recommmand top 5 similar movies
+#function to recommend top 5 similar movies
 def recommended(name):
     movie_index = movie[movie["title"] == name].index[0]
     vector = similarity[movie_index]
@@ -33,12 +33,12 @@ movie_dict = pickle.load(open("movie_dict.pkl",'rb'))
 movie = pd.DataFrame(movie_dict)
 # print(movie)
 
-st.markdown("<h1 style='text-align: center; color: white;'>Movie Recommander System</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white;'>Movie Recommender System</h1>", unsafe_allow_html=True)
 # st.title("<h1 style='text-align: center; color: grey;'>Movie Recommander System :sunglasses:</h1>",unsafe)
 # sentence = st.text_input('Enter Movie name:')
 box = st.selectbox("Enter Movie Name",movie["title"].values)
 
-if st.button('Recommand'):
+if st.button('Recommend'):
     name,poster = recommended(box)
 
     with st.expander(name[0]):
